@@ -1,0 +1,26 @@
+<p-panel header="lISTA ITEMS LOCALES">
+  <p-table [columns]="cols" [value]="listItems" [rows]="5" [paginator]="true">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th pSortableColumn="id">Id<p-sortIcon field="ID"></p-sortIcon></th>
+                <th pSortableColumn="about">About<p-sortIcon field="ID"></p-sortIcon></th>
+                <th pSortableColumn="accesUrl">AccesUrl<p-sortIcon field="ID"></p-sortIcon></th>
+                <th pSortableColumn="title">Title<p-sortIcon field="ID"></p-sortIcon></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-listItem>
+            <tr> 
+                <td>{{listItem.id}}</td>
+                <td>{{listItem.about}}</td>
+                <td>{{listItem.accesUrl}}</td>
+                <td>{{listItem.title}}</td>
+                
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" routerLink="/items/{{listItem.id}}"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteItem(listItem.id)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-panel>

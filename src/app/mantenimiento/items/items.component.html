@@ -1,0 +1,63 @@
+<p-panel header="Agregar Nuevo Item">
+    <form [formGroup]="registro">
+         
+                <div class="pl-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6" style="margin: auto;">
+                            <div class="form-group">   
+                                    <label for="Nombre">About</label>
+                                    <input formControlName="about" type="text" class="form-control">
+                                    <input formControlName="id" type="hidden" class="form-control">
+                                    <div *ngIf="registro.controls['about'].invalid && registro.controls['about'].dirty" class="alert alert-danger" role="alert">
+                                        About es obligatorio
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pl-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6" style="margin: auto;">               
+                                    <label for="Nombre">AccesUrl</label>
+                                    <input formControlName="accesUrl" type="text" class="form-control">
+                                    <div *ngIf="registro.controls['accesUrl'].invalid && registro.controls['accesUrl'].dirty" class="alert alert-danger" role="alert">
+                                        AccesUrl es obligatorio
+                                    </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="pl-lg-4">
+                    <div class="row">
+                        <div class="col-lg-6" style="margin: auto;"> 
+                                    <label for="Nombre">Title</label>
+                                    <input formControlName="title" type="text" class="form-control">
+                                    <div *ngIf="registro.controls['title'].invalid && registro.controls['title'].dirty" class="alert alert-danger" role="alert">
+                                    Title es obligatorio
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+       
+        <div title="Registrar" class="text-center">
+          <button *ngIf="opcion=='new'" [disabled]="!registro.valid" (click)="agregarItem()" style="background-color:#2db3bf; color: white;" 
+          type="button" class="btn btn-primary my-4">Registrar</button>
+          <button *ngIf="opcion!='new'" [disabled]="!registro.valid" (click)="editar()" style="background-color:#2db3bf; color: white;" 
+          type="button" class="btn btn-primary my-4">Editar</button>
+         
+        </div>
+      </form>
+      
+      <div *ngIf="envioForm=='ok'">
+        <div class="alert alert-success" role="alert">
+        Se registro correctamente
+        </div>
+      </div>
+
+      <div *ngIf="envioFormEditar=='ok'">
+        <div class="alert alert-success" role="alert">
+        Se edito correctamente
+        </div>
+      </div>
+    
+      
+</p-panel>
